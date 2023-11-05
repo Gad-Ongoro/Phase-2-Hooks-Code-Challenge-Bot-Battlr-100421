@@ -23,7 +23,6 @@ body {
     padding: 0px 20px;
 }
 .bots-container{
-    list-style-type: none;
     display: flex;
     flex-wrap: wrap;
 }

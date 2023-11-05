@@ -1,23 +1,15 @@
 import React, {useEffect, useState} from "react";
+import { NavLink } from "react-router-dom";
 
-function BotCollection() {
+function BotCollection({botsList}) {
   	// Your code here
-	const [botsList, setBotsList] = useState([]);
-	
-	useEffect(() => {
-		fetch("http://localhost:8002/bots")
-		  .then((res) => res.json())
-		  .then((data) => {
-				setBotsList(data);		
-		  });
-	}, []);
 
 	let eachBot = botsList.map((bot) => {
 		return (
-			<li key={bot.id}>
+			<NavLink key={bot.id}>
 				<img src={bot.avatar_url}></img>
 				<p>{bot.name}</p>
-			</li>
+			</NavLink>
 		)
 	})
 
