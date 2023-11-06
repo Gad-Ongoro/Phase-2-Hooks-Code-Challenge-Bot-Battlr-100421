@@ -15,13 +15,11 @@ function BotsPage() {
 		  	});
 	}, []);
 
+	// handle Bot Click
+
   	return (
-    	<div>
-			<Routes>
-				<Route path="/YourBotArmy">
-      				<YourBotArmy botsList={botsList}/>
-				</Route>
-			</Routes>
+    	<div class="bots-page">
+			<YourBotArmy botsList={botsList}/>
       		<BotCollection botsList={botsList}/>
     	</div>
 	)

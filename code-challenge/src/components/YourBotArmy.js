@@ -1,28 +1,19 @@
-import React from "react";
-import BotCollection from "./BotCollection";
+import React, {useState} from "react";
 
 function YourBotArmy({botsList}) {
     //your bot army code here...
-    let army = botsList.map((bot) => {
-        return(
-            <li key={bot.id}>
-                <img src={bot.avatar_url}></img>
-				<p>{bot.name}</p>
-            </li>
-        )
-    })
+    const [id, setID] = useState(101);
 
+    function ArmyBot(){
+        fetch(``)
+    }
 
     return (
         <div className="ui segment ,inverted olive bot-army">
-            <div className="ui five column grid">
                 <div className="row bot-army-row">
                 {/*...and here...*/}
-                <ul>
-                    {army}
-                </ul>
+                
                 </div>
-            </div>
         </div>
     );
 }
