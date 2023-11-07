@@ -60,4 +60,7 @@ body {
     pointer-events: none;
 }
 
-/* bot-list */
+.bot-list{
+    margin: 0.5%;
+    width: 20%;
+}

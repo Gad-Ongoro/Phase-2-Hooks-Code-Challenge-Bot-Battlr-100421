@@ -18,7 +18,7 @@ function BotsPage() {
 	// handle Bot Click
 
   	return (
-    	<div class="bots-page">
+    	<div className="bots-page">
 			<YourBotArmy botsList={botsList}/>
       		<BotCollection botsList={botsList}/>
     	</div>

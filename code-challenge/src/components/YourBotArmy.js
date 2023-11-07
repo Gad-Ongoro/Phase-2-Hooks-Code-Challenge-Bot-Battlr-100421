@@ -1,13 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 function YourBotArmy({botsList}) {
     //your bot army code here...
-    const [id, setID] = useState(101);
-
-    function ArmyBot(){
-        fetch(``)
-    }
-
+    const [state, setState] = useState(101);
+    
     return (
         <div className="ui segment ,inverted olive bot-army">
                 <div className="row bot-army-row">
