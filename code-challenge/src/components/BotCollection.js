@@ -35,6 +35,11 @@ function BotCollection({botsList, setBotsList}) {
 						.then((res) => res.json())
 						.then((data) => {
 							let botLi = document.createElement("li.soldier")
+							botLi.addEventListener("click", (e)=>{
+								botLi.style.cssText = `
+									display: none;
+								`
+							})
 							botLi.style.cssText = `
 								display: flex;
 								flex-direction: column;
