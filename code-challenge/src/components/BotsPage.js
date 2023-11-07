@@ -11,16 +11,17 @@ function BotsPage() {
 		fetch("http://localhost:8002/bots")
 		  	.then((res) => res.json())
 		  	.then((data) => {
-				setBotsList(data);		
+				setBotsList(data);
 		  	});
 	}, []);
 
-	// handle Bot Click
+	// handle Bot X Click
+	
 
   	return (
     	<div className="bots-page">
 			<YourBotArmy botsList={botsList}/>
-      		<BotCollection botsList={botsList}/>
+      		<BotCollection botsList={botsList} setBotsList={setBotsList}/>
     	</div>
 	)
 }

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { NavLink, Routes, Route } from "react-router-dom";
 
-function BotCollection({botsList}) {
+function BotCollection({botsList, setBotsList}) {
   	// Your code here
 	const [id, setID] = useState(101);
 
@@ -34,12 +34,18 @@ function BotCollection({botsList}) {
 					fetch(`http://localhost:8002/bots/${bot.id}`)
 						.then((res) => res.json())
 						.then((data) => {
-							let botLi = document.createElement("li")
+							let botLi = document.createElement("li.soldier")
+							botLi.style.cssText = `
+								display: flex;
+								flex-direction: column;
+								justify-content: center;
+								align-items: center;
+							`
 							botLi.innerHTML = `
 							<img src=${bot.avatar_url} className="bot-image"></img>
-							<p>${bot.name}</p>
-							<p>${bot.id}</p>`;
-							document.querySelector(".bot-army-row").appendChild(botLi);						
+							<h3>${bot.name}</h3>
+							<p>ID: ${bot.id}</p>`;
+							document.querySelector(".bot-army-row").appendChild(botLi);				
 						});
 					}
 				}
@@ -47,9 +53,28 @@ function BotCollection({botsList}) {
 					<img src={bot.avatar_url} className="bot-image"></img>
 					<h3>{bot.name}</h3>
 					<p>{bot.catchphrase}</p>
-					<p>ID: {bot.id}</p>				
+					<p>ID: {bot.id}</p>
 				</NavLink>
-				<p style={{color:"red", width:"100%", textAlign:"center", color:"white", backgroundColor:"red", height:"30px", cursor:"pointer"}}>X</p>
+				<p 
+				style={{color:"red", width:"100%", textAlign:"center", color:"white", backgroundColor:"red", height:"30px", cursor:"pointer"}}
+				onClick={
+				function(){
+					fetch(`http://localhost:8002/bots/${bot.id}`, {
+						method: "DELETE"
+					})
+					.then(res => res.json())
+					.then(data => {
+						console.log(data);
+						botsList.filter(()=> {
+							return(bot.id == true)
+						})
+						setBotsList(botsList);
+					})
+				}
+				}
+				>
+					X
+				</p>
 			</div>
 		)
 	})
